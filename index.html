@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="APP">
+<head>
+	<title>AJ Directives</title>
+</head>
+<body >
+	<name first="Arun" last="Sharma"></name>
+
+	<script src="scripts/angular.min.js"></script>
+	<script>
+
+	   var app = angular.module("APP", [])
+	   app.directive("name", function(){
+	   	    return {
+	   	    	restrict: 'E',
+	   	    	link: function(scope, element, attrs){
+	   	    		scope.fullname = attrs.first + ' ' + attrs.last
+
+	   	    	},
+	   	    	template: "<h1>{{fullname}}</h1>"
+	   	    }
+	   })
+	</script>
+
+</body>
+</html>
