@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="APP">
+<head>
+	<title>AJ Directives</title>
+</head>
+<body >
+	<h1 namer="" data-first="Arun" data-last="Sharma"></h1>
+
+	<script src="scripts/angular.min.js"></script>
+	<script>
+
+	   var app = angular.module("APP", [])
+	   app.directive("namer", function(){
+	   	    return {
+	   	    	restrict: 'AE',
+	   	    	link: function(scope, element, attrs){
+	   	    		scope.fullname = attrs.first + ' ' + attrs.last
+
+	   	    	},
+	   	    	//replace : true is used to replace the entire  <name tag and display <h1> otherwise <name tag also display in source view. of the html page . use this only  with E. HTML 5 use the data validation where we use the html custom attribute name starts with data-first or x-first. 
+	   	        
+	   	    	template: "{{fullname}}"
+	   	    }
+	   })
+	</script>
+ 
+</body>
+</html>
